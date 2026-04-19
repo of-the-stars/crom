@@ -54,7 +54,7 @@
           ];
         };
 
-        cargoArtifacts = craneLib.buildDepsOnly (commonArgs);
+        cargoArtifacts = craneLib.buildDepsOnly commonArgs;
 
         crane-package = craneLib.buildPackage (
           commonArgs
@@ -72,7 +72,9 @@
           packages = with pkgs; [
           ];
 
-          shellHook = '''';
+          shellHook = ''
+            echo "Entered dev shell!"
+          '';
 
           env = {
             # Needed for rust-analyzer
